@@ -1,12 +1,16 @@
 const express = require("express");
-const userRoutes = require("./routes/user");
 const app = express();
-var cors = require("cors");
+const cors = require("cors");
+require("dotenv").config();
+
+const userRoutes = require("./routes/user");
+const authRoutes = require("./routes/auth");
 
 const port = 5000;
 app.use(cors());
 app.use(express.json());
 
+app.use("/", authRoutes);
 app.use("/users", userRoutes);
 
 app.listen(port, () => {

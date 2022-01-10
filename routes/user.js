@@ -1,6 +1,6 @@
-var express = require("express");
+const express = require("express");
 const { User } = require("../models");
-var router = express.Router();
+const router = express.Router();
 
 function isEmpty(obj) {
   return Object.keys(obj).length === 0;
