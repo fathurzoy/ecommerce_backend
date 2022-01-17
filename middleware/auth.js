@@ -12,10 +12,7 @@ exports.checkAuth = (req, res, next) => {
     const tokenWithoutBearer = token.replace("Bearer ", "");
     // console.log({ tokenWithoutBearer });
 
-    const verified = jwt.verify(
-      tokenWithoutBearer,
-      process.env.JWT_SECTRET_KEY
-    );
+    const verified = jwt.verify(tokenWithoutBearer, process.env.JWT_SECRET_KEY);
 
     req.userId = verified;
 
